@@ -1,0 +1,18 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap');
+
+@theme {
+  /* Cores */
+  --color-bat-black: #0a0a0a; /* fundo principal */
+  --color-bat-black-soft: #141414; /* fundo secundário/cards */
+  --color-bat-black-card: #1c1c1c; /* fundo secundário/cards */
+  --color-bat-red: #8B0000; /* destaque/cta */
+  --color-bat-red-bright: #B0272C; /* destaque/cta */
+  --color-bat-text: #e8e8e8; /* texto principal */
+  --color-bat-text-muted: #9a9a9a; /* texto secundário */
+  --color-bat-amber: #c9962c; /* detalhe/luz */
+
+  /* Fontes */
+  --font-display: "Bebas Neue", sans-serif; /* títulos */
+  --font-body: "Inter", sans-serif; /* textos em geral */
+}
