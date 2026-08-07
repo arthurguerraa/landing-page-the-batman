@@ -12,15 +12,27 @@
   <header class="fixed top-0 w-full bg-bat-black/80 backdrop-blur-sm z-50">
     <nav class="flex items-center justify-between px-6 py-4 max-w-7xl mx-auto">
       <a href="#">
-        <img src="assets/images/the-batman-logo-2.png" alt="Logo The Batman" class="h-10 w-30">
+        <img src="assets/images/the-batman-logo-2.png" alt="Logo The Batman" class="h-10 w-20">
       </a>
-      <div class="flex gap-6 font-body text-bat-text">
+
+      <!-- Botão hambúrguer, só aparece no mobile -->
+      <button id="menu-toggle" class="md:hidden text-bat-text" aria-label="Abrir menu">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          class="w-7 h-7">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+
+      <!-- Menu: escondido no mobile por padrão, sempre visível a partir do md -->
+      <div id="menu-links"
+        class="absolute md:relative top-full left-0 w-full md:w-auto bg-bat-black md:bg-transparent flex flex-col md:flex-row gap-6 font-body text-bat-text px-6 py-4 md:p-0 opacity-0 -translate-y-4 pointer-events-none md:opacity-100 md:translate-y-0 md:pointer-events-auto transition-all duration-300 ease-out">
         <a href="#hero" class="hover:text-bat-red-bright transition-colors">Início</a>
         <a href="#summary" class="hover:text-bat-red-bright transition-colors">Sinopse</a>
         <a href="#cast" class="hover:text-bat-red-bright transition-colors">Elenco</a>
         <a href="#scenes" class="hover:text-bat-red-bright transition-colors">Cenas</a>
         <a href="#trailer" class="hover:text-bat-red-bright transition-colors">Trailer</a>
         <a href="#reviews" class="hover:text-bat-red-bright transition-colors">Avaliações</a>
+      </div>
       </div>
     </nav>
   </header>
@@ -211,9 +223,42 @@
       </div>
     </section>
   </main>
-  <footer>
+  <footer class="bg-bat-black py-12 px-6 border-t border-bat-black-card">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
 
+      <div class="text-center md:text-left">
+        <p class="font-display text-2xl text-bat-red-bright tracking-wide">THE BATMAN</p>
+        <p class="font-body text-bat-text-muted text-sm mt-2 max-w-md">
+          Projeto fan-made sem fins lucrativos, feito para fins de estudo.
+          Todos os direitos das imagens e do filme pertencem à Warner Bros.
+        </p>
+      </div>
+
+      <div class="flex gap-6">
+        <a href="https://github.com/arthurguerraa" target="_blank" rel="noopener noreferrer"
+          class="text-bat-text hover:text-bat-red-bright transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+            <path
+              d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55 0-.27-.01-1.16-.02-2.1-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.47.11-3.06 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.79 0c2.21-1.49 3.18-1.18 3.18-1.18.63 1.59.23 2.77.11 3.06.74.8 1.19 1.83 1.19 3.09 0 4.43-2.69 5.41-5.25 5.69.41.36.78 1.08.78 2.17 0 1.57-.01 2.83-.01 3.22 0 .3.2.66.79.55C20.71 21.38 24 17.08 24 12c0-6.35-5.15-11.5-12-11.5Z" />
+          </svg>
+        </a>
+
+        <a href="https://www.linkedin.com/in/arthurguerraa/" target="_blank" rel="noopener noreferrer"
+          class="text-bat-text hover:text-bat-red-bright transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+            <path
+              d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.86 0-2.14 1.45-2.14 2.94v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.59 0 4.26 2.37 4.26 5.45v6.29ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45Z" />
+          </svg>
+        </a>
+      </div>
+
+    </div>
+
+    <p class="text-center text-bat-text-muted text-xs mt-8 font-body">
+      Desenvolvido por Arthur Guerra — © 2026
+    </p>
   </footer>
+  <script src="src/js/main.js"></script>
 </body>
 
 </html>
