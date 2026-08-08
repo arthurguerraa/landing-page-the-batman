@@ -178,7 +178,7 @@ function resizeCanvas() {
 }
 
 function createDrops() {
-  const dropCount = 120;
+  const dropCount = 250;
   drops = [];
   for (let i = 0; i < dropCount; i++) {
     drops.push({
