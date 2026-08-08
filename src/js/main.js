@@ -17,6 +17,9 @@ menuToggle.addEventListener("click", () => {
   menuLinks.classList.toggle("opacity-0");
   menuLinks.classList.toggle("-translate-y-4");
   menuLinks.classList.toggle("pointer-events-none");
+
+  const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
+  menuToggle.setAttribute("aria-expanded", String(!isOpen));
 });
 
 const links = menuLinks.querySelectorAll("a");
@@ -251,38 +254,101 @@ const navObserver = new IntersectionObserver(
 
 sections.forEach((section) => navObserver.observe(section));
 
-
 // ===================== HEADER TRANSPARENTE NO TOPO, SÓLIDO AO ROLAR =====================
-const header = document.getElementById('header');
+const header = document.getElementById("header");
 
 function updateHeaderBackground() {
   if (window.scrollY > 50) {
-    header.classList.add('bg-bat-black/80', 'backdrop-blur-sm');
+    header.classList.add("bg-bat-black/80", "backdrop-blur-sm");
   } else {
-    header.classList.remove('bg-bat-black/80', 'backdrop-blur-sm');
+    header.classList.remove("bg-bat-black/80", "backdrop-blur-sm");
   }
 }
 
 updateHeaderBackground(); // roda uma vez ao carregar, caso a página já abra rolada
-window.addEventListener('scroll', () => {
+window.addEventListener("scroll", () => {
   requestAnimationFrame(updateHeaderBackground);
 });
 
 // ===================== BOTÃO VOLTAR AO TOPO =====================
-const backToTopBtn = document.getElementById('back-to-top');
+const backToTopBtn = document.getElementById("back-to-top");
 
 function toggleBackToTop() {
   if (window.scrollY > 500) {
-    backToTopBtn.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-4');
+    backToTopBtn.classList.remove(
+      "opacity-0",
+      "pointer-events-none",
+      "translate-y-4",
+    );
   } else {
-    backToTopBtn.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4');
+    backToTopBtn.classList.add(
+      "opacity-0",
+      "pointer-events-none",
+      "translate-y-4",
+    );
   }
 }
 
-window.addEventListener('scroll', () => {
+window.addEventListener("scroll", () => {
   requestAnimationFrame(toggleBackToTop);
 });
 
-backToTopBtn.addEventListener('click', () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+backToTopBtn.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+// ===================== LIGHTBOX (galeria de cenas) =====================
+let currentImageIndex = 0;
+
+function openLightbox(index) {
+  currentImageIndex = index;
+  const img = galleryImages[currentImageIndex];
+  lightboxImg.src = img.src;
+  lightboxImg.alt = img.alt;
+  lightbox.classList.remove("hidden");
+  lightbox.classList.add("flex");
+  requestAnimationFrame(() => {
+    lightbox.classList.remove("opacity-0");
+  });
+}
+
+function showNextImage() {
+  currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+  const img = galleryImages[currentImageIndex];
+  lightboxImg.src = img.src;
+  lightboxImg.alt = img.alt;
+}
+
+function showPrevImage() {
+  currentImageIndex =
+    (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+  const img = galleryImages[currentImageIndex];
+  lightboxImg.src = img.src;
+  lightboxImg.alt = img.alt;
+}
+
+galleryImages.forEach((img, index) => {
+  img.addEventListener("click", () => openLightbox(index));
+});
+
+function closeLightbox() {
+  lightbox.classList.add("opacity-0");
+  setTimeout(() => {
+    lightbox.classList.add("hidden");
+    lightbox.classList.remove("flex");
+  }, 300);
+}
+
+lightboxClose.addEventListener("click", closeLightbox);
+
+lightbox.addEventListener("click", (e) => {
+  if (e.target === lightbox) closeLightbox();
+});
+
+document.addEventListener("keydown", (e) => {
+  if (lightbox.classList.contains("hidden")) return;
+
+  if (e.key === "Escape") closeLightbox();
+  if (e.key === "ArrowRight") showNextImage();
+  if (e.key === "ArrowLeft") showPrevImage();
 });
