@@ -42,7 +42,7 @@
       </button>
 
       <!-- Menu: escondido no mobile por padrão, sempre visível a partir do md -->
-      <div id="menu-links"
+      <div id="menu-links" role="navigation" aria-label="Menu principal"
         class="absolute md:relative top-full left-0 w-full md:w-auto bg-bat-black md:bg-transparent flex flex-col md:flex-row gap-6 font-body text-bat-text px-6 py-4 md:p-0 opacity-0 -translate-y-4 pointer-events-none md:opacity-100 md:translate-y-0 md:pointer-events-auto transition-all duration-300 ease-out">
         <a href="#hero" class="hover:text-bat-red-bright transition-colors">Início</a>
         <a href="#synopsis" class="hover:text-bat-red-bright transition-colors">Sinopse</a>
@@ -99,12 +99,16 @@
           <h2 class="font-display text-4xl md:text-5xl text-bat-red-bright mb-6 tracking-wide">
             Sinopse
           </h2>
-          <p class="font-body text-bat-text-muted text-lg leading-relaxed max-w-prose">
-            No segundo ano aterrorizando a criminalidade de Gotham City à noite,
-            Batman investiga a corrupção que liga sua própria família ao assassinato
-            de um candidato à prefeitura, enquanto se confronta com um assassino em série
-            conhecido como o Charada.
+          <p id="synopsis-text" class="font-mono text-bat-red-bright text-lg leading-relaxed max-w-prose min-h-[160px]"
+            data-text="No segundo ano aterrorizando a criminalidade de Gotham City à noite, Batman investiga a corrupção que liga sua própria família ao assassinato de um candidato à prefeitura, enquanto se confronta com um assassino em série conhecido como o Charada."
+            aria-hidden="true">
           </p>
+
+          <span class="sr-only">
+            No segundo ano aterrorizando a criminalidade de Gotham City à noite, Batman investiga a corrupção que liga
+            sua própria família ao assassinato de um candidato à prefeitura, enquanto se confronta com um assassino em
+            série conhecido como o Charada.
+          </span>
         </div>
 
       </div>

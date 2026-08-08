@@ -352,3 +352,29 @@ document.addEventListener("keydown", (e) => {
   if (e.key === "ArrowRight") showNextImage();
   if (e.key === "ArrowLeft") showPrevImage();
 });
+
+// ===================== EFEITO DE DIGITAÇÃO (Sinopse) =====================
+const terminalText = document.getElementById('synopsis-text');
+const fullText = terminalText.getAttribute('data-text');
+const typingSpeed = 25; // ms entre cada caractere — menor número = mais rápido
+
+function typeWriter() {
+  let i = 0;
+  terminalText.textContent = '';
+  const typingInterval = setInterval(() => {
+    terminalText.textContent += fullText[i];
+    i++;
+    if (i >= fullText.length) clearInterval(typingInterval);
+  }, typingSpeed);
+}
+
+const typingObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      typeWriter();
+      typingObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.4 });
+
+typingObserver.observe(terminalText);
