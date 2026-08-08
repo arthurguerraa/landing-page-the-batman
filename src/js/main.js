@@ -1,3 +1,4 @@
+// ===================== SELETORES GLOBAIS =====================
 const menuToggle = document.getElementById("menu-toggle");
 const menuLinks = document.getElementById("menu-links");
 const lightbox = document.getElementById("lightbox");
@@ -12,6 +13,7 @@ let autoplayInterval;
 let isTransitioning = false;
 
 
+// ===================== MENU MOBILE =====================
 menuToggle.addEventListener("click", () => {
   menuLinks.classList.toggle("opacity-0");
   menuLinks.classList.toggle("-translate-y-4");
@@ -29,6 +31,8 @@ links.forEach((link) => {
   });
 });
 
+
+// ===================== SCROLL ANIMATIONS (fade-in) =====================
 const faders = document.querySelectorAll(".fade-in");
 
 const observer = new IntersectionObserver(
@@ -47,6 +51,8 @@ const observer = new IntersectionObserver(
 
 faders.forEach((el) => observer.observe(el));
 
+
+// ===================== LIGHTBOX (galeria de cenas) =====================
 galleryImages.forEach((img) => {
   img.addEventListener("click", () => {
     lightboxImg.src = img.src;
@@ -77,6 +83,9 @@ document.addEventListener("keydown", (e) => {
   if (e.key === "Escape" && !lightbox.classList.contains("hidden"))
     closeLightbox();
 });
+
+
+// ===================== CARROSSEL DE CRÍTICAS (autoplay + loop infinito) =====================
 
 // Clona o primeiro card e adiciona no final (truque do loop infinito)
 const firstClone = track.children[0].cloneNode(true);

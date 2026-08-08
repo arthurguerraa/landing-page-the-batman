@@ -9,6 +9,7 @@
 </head>
 
 <body>
+  <!-- ===================== HEADER / NAVEGAÇÃO ===================== -->
   <header class="fixed top-0 w-full bg-bat-black/80 backdrop-blur-sm z-50">
     <nav class="flex items-center justify-between px-6 py-4 max-w-7xl mx-auto">
       <a href="#">
@@ -35,7 +36,9 @@
       </div>
     </nav>
   </header>
+
   <main>
+    <!-- ===================== HERO ===================== -->
     <section id="hero"
       class="relative h-screen flex items-center justify-center text-center bg-[url('/assets/images/hero-bg.jpeg')] bg-cover bg-center">
 
@@ -57,6 +60,8 @@
       </div>
 
     </section>
+
+    <!-- ===================== SINOPSE ===================== -->
     <section id="summary" class="bg-bat-black-soft py-20 px-6">
       <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
 
@@ -80,6 +85,8 @@
 
       </div>
     </section>
+
+    <!-- ===================== ELENCO ===================== -->
     <section id="cast" class="bg-bat-black py-20 px-6">
       <div class="max-w-6xl mx-auto">
 
@@ -132,6 +139,8 @@
         </div>
       </div>
     </section>
+
+    <!-- ===================== GALERIA DE CENAS (com lightbox) ===================== -->
     <section id="scenes" class="bg-bat-black-soft py-20 px-6">
       <div class="max-w-6xl mx-auto">
 
@@ -160,6 +169,8 @@
         </div>
       </div>
     </section>
+
+    <!-- ===================== TRAILER ===================== -->
     <section id="trailer" class="bg-bat-black py-20 px-6">
       <div class="max-w-4xl mx-auto">
 
@@ -177,6 +188,8 @@
 
       </div>
     </section>
+
+    <!-- ===================== CRÍTICAS (carrossel automático) ===================== -->
     <section id="reviews" class="bg-bat-black-soft py-20 px-6">
       <div class="max-w-3xl mx-auto">
 
@@ -222,12 +235,14 @@
           </div>
         </div>
 
-        <!-- Dots de navegação -->
+        <!-- Dots de navegação (gerados dinamicamente pelo JS) -->
         <div id="carousel-dots" class="flex justify-center gap-3 mt-6"></div>
 
       </div>
     </section>
   </main>
+
+  <!-- ===================== FOOTER ===================== -->
   <footer class="bg-bat-black py-12 px-6 border-t border-bat-black-card">
     <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
 
@@ -263,7 +278,8 @@
       Desenvolvido por Arthur Guerra — © 2026
     </p>
   </footer>
-  <!-- Lightbox -->
+
+  <!-- ===================== LIGHTBOX (modal de imagem ampliada) ===================== -->
   <div id="lightbox"
     class="fixed inset-0 bg-black/90 z-[100] hidden items-center justify-center px-6 opacity-0 transition-opacity duration-300">
     <button id="lightbox-close" class="absolute top-6 right-6 text-bat-text hover:text-bat-red-bright transition-colors"
