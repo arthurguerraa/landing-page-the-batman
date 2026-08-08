@@ -164,9 +164,9 @@ window.addEventListener("scroll", () => {
 });
 
 // ===================== EFEITO DE CHUVA (Hero) =====================
-const rainCanvas = document.getElementById('rain-canvas');
-const ctx = rainCanvas.getContext('2d');
-const heroSection = document.getElementById('hero');
+const rainCanvas = document.getElementById("rain-canvas");
+const ctx = rainCanvas.getContext("2d");
+const heroSection = document.getElementById("hero");
 
 const rainAngle = 0.35; // quanto maior, mais inclinada pra esquerda (0 = totalmente reta)
 
@@ -186,17 +186,17 @@ function createDrops() {
       y: Math.random() * rainCanvas.height,
       length: Math.random() * 20 + 10,
       speed: Math.random() * 4 + 4,
-      opacity: Math.random() * 0.3 + 0.1
+      opacity: Math.random() * 0.3 + 0.1,
     });
   }
 }
 
 function drawRain() {
   ctx.clearRect(0, 0, rainCanvas.width, rainCanvas.height);
-  ctx.strokeStyle = 'rgba(200, 210, 220, 0.5)';
+  ctx.strokeStyle = "rgba(200, 210, 220, 0.5)";
   ctx.lineWidth = 1;
 
-  drops.forEach(drop => {
+  drops.forEach((drop) => {
     ctx.globalAlpha = drop.opacity;
     ctx.beginPath();
     ctx.moveTo(drop.x, drop.y);
@@ -219,7 +219,34 @@ resizeCanvas();
 createDrops();
 drawRain();
 
-window.addEventListener('resize', () => {
+window.addEventListener("resize", () => {
   resizeCanvas();
   createDrops();
 });
+
+// ===================== INDICADOR DE SEÇÃO ATIVA NO MENU =====================
+const sections = document.querySelectorAll("main section[id]");
+const navLinks = document.querySelectorAll('#menu-links a[href^="#"]');
+
+const navObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      const id = entry.target.getAttribute("id");
+      const correspondingLink = document.querySelector(
+        `#menu-links a[href="#${id}"]`,
+      );
+
+      if (entry.isIntersecting) {
+        navLinks.forEach((link) =>
+          link.classList.remove("text-bat-red-bright"),
+        );
+        correspondingLink.classList.add("text-bat-red-bright");
+      }
+    });
+  },
+  {
+    rootMargin: "-40% 0px -40% 0px", // considera "ativa" a seção que está na faixa central da tela
+  },
+);
+
+sections.forEach((section) => navObserver.observe(section));
