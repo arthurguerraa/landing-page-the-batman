@@ -250,3 +250,20 @@ const navObserver = new IntersectionObserver(
 );
 
 sections.forEach((section) => navObserver.observe(section));
+
+
+// ===================== HEADER TRANSPARENTE NO TOPO, SÓLIDO AO ROLAR =====================
+const header = document.getElementById('header');
+
+function updateHeaderBackground() {
+  if (window.scrollY > 50) {
+    header.classList.add('bg-bat-black/80', 'backdrop-blur-sm');
+  } else {
+    header.classList.remove('bg-bat-black/80', 'backdrop-blur-sm');
+  }
+}
+
+updateHeaderBackground(); // roda uma vez ao carregar, caso a página já abra rolada
+window.addEventListener('scroll', () => {
+  requestAnimationFrame(updateHeaderBackground);
+});

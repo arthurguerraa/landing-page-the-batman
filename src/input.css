@@ -31,75 +31,65 @@
   transform: translateY(0);
 }
 
-/* Efeito glitch no título do Hero (dispara uma vez ao carregar) */
-.glitch {
+/* Efeito glitch no título do Hero (dispara ao passar o mouse) */
+@keyframes wiggle {
+  0% {
+    transform: skewX(24deg);
+  }
+  10% {
+    transform: skewX(-8deg);
+  }
+  20% {
+    transform: skewX(55deg);
+  }
+  30% {
+    transform: skewX(-90deg);
+  }
+  40% {
+    transform: skewX(29deg);
+  }
+  50% {
+    transform: skewX(-90deg);
+  }
+  60% {
+    transform: skewX(3deg);
+  }
+  70% {
+    transform: skewX(-2deg);
+  }
+  80% {
+    transform: skewX(1deg);
+  }
+  90% {
+    transform: skewX(10deg);
+  }
+  100% {
+    transform: skewX(0deg);
+  }
+}
+
+.glitch-hover {
   position: relative;
-  animation: glitch-skew 1.2s linear;
+  cursor: pointer;
+  text-shadow:
+    1px 1px var(--color-bat-red-bright),
+    -1px -1px rgba(20, 20, 20, 0.8),
+    -1px 0px var(--color-bat-amber);
+  transition: text-shadow 0.15s ease-out;
 }
 
-.glitch::before,
-.glitch::after {
-  content: attr(data-text);
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.glitch::before {
-  color: var(--color-bat-red-bright);
-  animation: glitch-before 1.2s linear;
-}
-
-.glitch::after {
-  color: var(--color-bat-amber);
-  animation: glitch-after 1.2s linear;
-}
-
-@keyframes glitch-skew {
-  0%   { transform: translate(0); }
-  10%  { transform: translate(-2px, 1px); }
-  20%  { transform: translate(-2px, -1px); }
-  30%  { transform: translate(2px, 1px); }
-  40%  { transform: translate(2px, -1px); }
-  50%  { transform: translate(-1px, 0); }
-  60%  { transform: translate(1px, 1px); }
-  70%  { transform: translate(-2px, -1px); }
-  80%  { transform: translate(2px, 0); }
-  90%  { transform: translate(-1px, -1px); }
-  100% { transform: translate(0); }
-}
-
-@keyframes glitch-before {
-  0%   { clip-path: inset(0 0 90% 0); transform: translate(0); }
-  10%  { clip-path: inset(10% 0 60% 0); transform: translate(-4px, 0); }
-  20%  { clip-path: inset(50% 0 20% 0); transform: translate(4px, 0); }
-  30%  { clip-path: inset(20% 0 70% 0); transform: translate(-3px, 0); }
-  40%  { clip-path: inset(80% 0 5% 0); transform: translate(3px, 0); }
-  50%  { clip-path: inset(30% 0 40% 0); transform: translate(-4px, 0); }
-  60%  { clip-path: inset(60% 0 15% 0); transform: translate(4px, 0); }
-  70%  { clip-path: inset(10% 0 80% 0); transform: translate(-2px, 0); }
-  80%  { clip-path: inset(45% 0 30% 0); transform: translate(2px, 0); }
-  90%  { clip-path: inset(0 0 95% 0); transform: translate(-2px, 0); }
-  100% { clip-path: inset(0 0 100% 0); opacity: 0; }
-}
-
-@keyframes glitch-after {
-  0%   { clip-path: inset(90% 0 0 0); transform: translate(0); }
-  10%  { clip-path: inset(60% 0 10% 0); transform: translate(4px, 0); }
-  20%  { clip-path: inset(20% 0 50% 0); transform: translate(-4px, 0); }
-  30%  { clip-path: inset(70% 0 20% 0); transform: translate(3px, 0); }
-  40%  { clip-path: inset(5% 0 80% 0); transform: translate(-3px, 0); }
-  50%  { clip-path: inset(40% 0 30% 0); transform: translate(4px, 0); }
-  60%  { clip-path: inset(15% 0 60% 0); transform: translate(-4px, 0); }
-  70%  { clip-path: inset(80% 0 10% 0); transform: translate(2px, 0); }
-  80%  { clip-path: inset(30% 0 45% 0); transform: translate(-2px, 0); }
-  90%  { clip-path: inset(95% 0 0 0); transform: translate(2px, 0); }
-  100% { clip-path: inset(100% 0 0 0); opacity: 0; }
+.glitch-hover:hover {
+  animation: wiggle 0.2s 2;
+  text-shadow:
+    18px 8px var(--color-bat-red-bright),
+    -22px -3px rgba(20, 20, 20, 0.8),
+    -2px -4px var(--color-bat-amber);
 }
 
 /* Cursor customizado nas imagens da galeria (ícone de expandir) */
 .lightbox-img {
-  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='rgba(10,10,10,0.55)' stroke='%23e8e8e8' stroke-width='1.5'/%3E%3Cline x1='16' y1='9' x2='16' y2='23' stroke='%23e8e8e8' stroke-width='2'/%3E%3Cline x1='9' y1='16' x2='23' y2='16' stroke='%23e8e8e8' stroke-width='2'/%3E%3C/svg%3E") 16 16, pointer;
+  cursor:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='rgba(10,10,10,0.55)' stroke='%23e8e8e8' stroke-width='1.5'/%3E%3Cline x1='16' y1='9' x2='16' y2='23' stroke='%23e8e8e8' stroke-width='2'/%3E%3Cline x1='9' y1='16' x2='23' y2='16' stroke='%23e8e8e8' stroke-width='2'/%3E%3C/svg%3E")
+      16 16,
+    pointer;
 }
