@@ -245,9 +245,6 @@
   .z-100 {
     z-index: 100;
   }
-  .z-\[100\] {
-    z-index: 100;
-  }
   .col-span-2 {
     grid-column: span 2 / span 2;
   }
@@ -376,9 +373,6 @@
   }
   .max-w-xl {
     max-width: var(--container-xl);
-  }
-  .min-w-\[280px\] {
-    min-width: 280px;
   }
   .min-w-full {
     min-width: 100%;
@@ -694,9 +688,6 @@
     }
     .md\:w-auto {
       width: auto;
-    }
-    .md\:min-w-\[320px\] {
-      min-width: 320px;
     }
     .md\:translate-y-0 {
       --tw-translate-y: 0px;
