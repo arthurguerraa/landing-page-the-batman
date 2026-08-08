@@ -93,3 +93,28 @@
       16 16,
     pointer;
 }
+
+/* Scrollbar customizada */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bat-black);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-bat-red);
+  border-radius: 10px;
+  border: 2px solid var(--color-bat-black);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-bat-red-bright);
+}
+
+/* Scrollbar customizada (Firefox) */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-bat-red) var(--color-bat-black);
+}

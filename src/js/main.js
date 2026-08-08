@@ -267,3 +267,22 @@ updateHeaderBackground(); // roda uma vez ao carregar, caso a página já abra r
 window.addEventListener('scroll', () => {
   requestAnimationFrame(updateHeaderBackground);
 });
+
+// ===================== BOTÃO VOLTAR AO TOPO =====================
+const backToTopBtn = document.getElementById('back-to-top');
+
+function toggleBackToTop() {
+  if (window.scrollY > 500) {
+    backToTopBtn.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-4');
+  } else {
+    backToTopBtn.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4');
+  }
+}
+
+window.addEventListener('scroll', () => {
+  requestAnimationFrame(toggleBackToTop);
+});
+
+backToTopBtn.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
