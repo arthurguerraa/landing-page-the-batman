@@ -129,8 +129,14 @@ html {
 }
 
 @keyframes blink-cursor {
-  0%, 50% { opacity: 1; }
-  51%, 100% { opacity: 0; }
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
 }
 
 /* Preloader */
@@ -142,11 +148,64 @@ html {
 
 /* Efeito lanterna (Elenco) */
 .lantern-overlay {
-  background: radial-gradient(circle 100px at var(--x, 50%) var(--y, 50%), transparent 0%, rgba(10, 10, 10, 0.88) 100%);
+  background: radial-gradient(
+    circle 100px at var(--x, 50%) var(--y, 50%),
+    transparent 0%,
+    rgba(10, 10, 10, 0.88) 100%
+  );
   opacity: 0;
   transition: opacity 0.3s ease-out;
 }
 
 .cast-card:hover .lantern-overlay {
   opacity: 1;
+}
+
+/* Efeito neon com flicker (baseado em opacidade + sombra) */
+@keyframes flicker-text {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    opacity: 1;
+    text-shadow: 0 0 10px var(--color-bat-red-bright), 0 0 40px var(--color-bat-red);
+  }
+  20%, 24%, 55% {
+    opacity: 0.4;
+    text-shadow: none;
+  }
+}
+
+.neon-text {
+  animation: flicker-text 1.5s infinite alternate;
+}
+
+@keyframes flicker-box {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 10px var(--color-bat-red-bright), 0 0 40px var(--color-bat-red);
+  }
+  20%, 24%, 55% {
+    opacity: 0.4;
+    box-shadow: none;
+  }
+}
+
+.neon-box {
+  animation: flicker-box 1.5s infinite alternate;
+}
+
+/* Vinheta + névoa de profundidade nas seções */
+.section-depth {
+  position: relative;
+  background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(176, 39, 44, 0.14), transparent 65%),
+              var(--color-bat-black);
+  box-shadow: inset 0 0 200px 60px rgba(0, 0, 0, 0.85);
+}
+
+/* Reveal de imagem com clip-path (efeito cortina) */
+.clip-reveal {
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 1.1s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.clip-reveal.is-revealed {
+  clip-path: inset(0 0% 0 0);
 }
