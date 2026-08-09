@@ -12,6 +12,42 @@ let currentSlide = 0;
 let autoplayInterval;
 let isTransitioning = false;
 
+// ===================== PRELOADER =====================
+const preloader = document.getElementById("preloader");
+const preloaderBar = document.getElementById("preloader-bar");
+const preloaderPercent = document.getElementById("preloader-percent");
+
+const allImages = document.querySelectorAll("img");
+const totalImages = allImages.length;
+let loadedImages = 0;
+
+function updateProgress() {
+  loadedImages++;
+  const percent = Math.round((loadedImages / totalImages) * 100);
+  preloaderBar.style.width = percent + "%";
+  preloaderPercent.textContent = percent + "%";
+
+  if (loadedImages >= totalImages) {
+    setTimeout(() => {
+      preloader.classList.add("preloader-hidden");
+      setTimeout(() => preloader.remove(), 600);
+    }, 400); // pequena pausa cinematográfica antes de sumir, mesmo já em 100%
+  }
+}
+
+if (totalImages === 0) {
+  preloader.remove();
+} else {
+  allImages.forEach((img) => {
+    if (img.complete) {
+      updateProgress(); // imagem já veio do cache, conta na hora
+    } else {
+      img.addEventListener("load", updateProgress);
+      img.addEventListener("error", updateProgress); // conta mesmo se der erro, pra não travar a barra pra sempre
+    }
+  });
+}
+
 // ===================== MENU MOBILE =====================
 menuToggle.addEventListener("click", () => {
   menuLinks.classList.toggle("opacity-0");
@@ -354,13 +390,13 @@ document.addEventListener("keydown", (e) => {
 });
 
 // ===================== EFEITO DE DIGITAÇÃO (Sinopse) =====================
-const terminalText = document.getElementById('synopsis-text');
-const fullText = terminalText.getAttribute('data-text');
+const terminalText = document.getElementById("synopsis-text");
+const fullText = terminalText.getAttribute("data-text");
 const typingSpeed = 25; // ms entre cada caractere — menor número = mais rápido
 
 function typeWriter() {
   let i = 0;
-  terminalText.textContent = '';
+  terminalText.textContent = "";
   const typingInterval = setInterval(() => {
     terminalText.textContent += fullText[i];
     i++;
@@ -368,13 +404,50 @@ function typeWriter() {
   }, typingSpeed);
 }
 
-const typingObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      typeWriter();
-      typingObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.4 });
+const typingObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        typeWriter();
+        typingObserver.unobserve(entry.target);
+      }
+    });
+  },
+  { threshold: 0.4 },
+);
 
 typingObserver.observe(terminalText);
+
+// ===================== TRAILER SOB DEMANDA (lazy load do iframe) =====================
+const trailerWrapper = document.getElementById("trailer-wrapper");
+
+trailerWrapper.addEventListener(
+  "click",
+  () => {
+    trailerWrapper.innerHTML = `
+    <iframe class="w-full h-full" 
+      src="https://www.youtube.com/embed/mqqft2x_Aa4?autoplay=1"
+      title="The Batman - Trailer Oficial" 
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen>
+    </iframe>
+  `;
+  },
+  { once: true },
+);
+
+// ===================== EFEITO LANTERNA (Elenco) =====================
+const castCards = document.querySelectorAll(".cast-card");
+
+castCards.forEach((card) => {
+  const overlay = card.querySelector(".lantern-overlay");
+
+  card.addEventListener("mousemove", (e) => {
+    const rect = card.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+    overlay.style.setProperty("--x", `${x}%`);
+    overlay.style.setProperty("--y", `${y}%`);
+  });
+});

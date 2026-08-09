@@ -26,6 +26,17 @@
 </head>
 
 <body>
+
+  <!-- ===================== PRELOADER ===================== -->
+  <div id="preloader" class="fixed inset-0 z-200 bg-bat-black flex flex-col items-center justify-center gap-6">
+    <img src="assets/images/batman-logo-preloader.png" alt="Logo Batman" class="w-32 md:w-40 animate-pulse">
+    <div class="w-64 h-[2px] bg-bat-black-card overflow-hidden">
+      <div id="preloader-bar" class="h-full bg-bat-red-bright transition-all duration-200 ease-out" style="width: 0%">
+      </div>
+    </div>
+    <p id="preloader-percent" class="font-mono text-bat-text-muted text-sm">0%</p>
+  </div>
+
   <!-- ===================== HEADER / NAVEGAÇÃO ===================== -->
   <header id="header" class="fixed top-0 w-full z-50 transition-colors duration-300">
     <nav class="flex items-center justify-between px-6 py-4 max-w-7xl mx-auto">
@@ -125,9 +136,12 @@
         <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
 
           <!-- Card 1 -->
-          <div class="bg-bat-black-card rounded-lg overflow-hidden group fade-in">
-            <img src="assets/images/cast-pattinson.jpg" alt="Robert Pattinson como Batman"
-              class="w-full h-64 object-cover group-hover:scale-105 transition-transform">
+          <div class="cast-card bg-bat-black-card rounded-lg overflow-hidden group fade-in">
+            <div class="relative overflow-hidden">
+              <img src="assets/images/cast-pattinson.jpg" alt="Robert Pattinson como Batman"
+                class="w-full h-64 object-cover group-hover:scale-105 transition-transform">
+              <div class="lantern-overlay absolute inset-0 pointer-events-none"></div>
+            </div>
             <div class="p-4 text-center">
               <p class="font-body text-bat-text font-semibold">Robert Pattinson</p>
               <p class="font-body text-bat-text-muted text-sm">Batman / Bruce Wayne</p>
@@ -135,9 +149,12 @@
           </div>
 
           <!-- Card 2 -->
-          <div class="bg-bat-black-card rounded-lg overflow-hidden group fade-in">
-            <img src="assets/images/cast-kravitz.jpg" alt="Zoë Kravitz como Mulher-Gato"
-              class="w-full h-64 object-cover group-hover:scale-105 transition-transform">
+          <div class="cast-card bg-bat-black-card rounded-lg overflow-hidden group fade-in">
+            <div class="relative overflow-hidden">
+              <img src="assets/images/cast-kravitz.jpg" alt="Zoë Kravitz como Mulher-Gato"
+                class="w-full h-64 object-cover group-hover:scale-105 transition-transform">
+              <div class="lantern-overlay absolute inset-0 pointer-events-none"></div>
+            </div>
             <div class="p-4 text-center">
               <p class="font-body text-bat-text font-semibold">Zoë Kravitz</p>
               <p class="font-body text-bat-text-muted text-sm">Selina Kyle / Mulher-Gato</p>
@@ -145,9 +162,12 @@
           </div>
 
           <!-- Card 3 -->
-          <div class="bg-bat-black-card rounded-lg overflow-hidden group fade-in">
-            <img src="assets/images/cast-dano.jpg" alt="Paul Dano como Charada"
-              class="w-full h-64 object-cover group-hover:scale-105 transition-transform">
+          <div class="cast-card bg-bat-black-card rounded-lg overflow-hidden group fade-in">
+            <div class="relative overflow-hidden">
+              <img src="assets/images/cast-dano.jpg" alt="Paul Dano como Charada"
+                class="w-full h-64 object-cover group-hover:scale-105 transition-transform">
+              <div class="lantern-overlay absolute inset-0 pointer-events-none"></div>
+            </div>
             <div class="p-4 text-center">
               <p class="font-body text-bat-text font-semibold">Paul Dano</p>
               <p class="font-body text-bat-text-muted text-sm">Edward Nashton / Charada</p>
@@ -155,9 +175,12 @@
           </div>
 
           <!-- Card 4 -->
-          <div class="bg-bat-black-card rounded-lg overflow-hidden group fade-in">
-            <img src="assets/images/cast-farrell.jpg" alt="Colin Farrell como Pinguim"
-              class="w-full h-64 object-cover group-hover:scale-105 transition-transform">
+          <div class="cast-card bg-bat-black-card rounded-lg overflow-hidden group fade-in">
+            <div class="relative overflow-hidden">
+              <img src="assets/images/cast-farrell.jpg" alt="Colin Farrell como Pinguim"
+                class="w-full h-64 object-cover group-hover:scale-105 transition-transform">
+              <div class="lantern-overlay absolute inset-0 pointer-events-none"></div>
+            </div>
             <div class="p-4 text-center">
               <p class="font-body text-bat-text font-semibold">Colin Farrell</p>
               <p class="font-body text-bat-text-muted text-sm">Oswald Cobblepot / Pinguim</p>
@@ -165,9 +188,12 @@
           </div>
 
           <!-- Card 5 -->
-          <div class="bg-bat-black-card rounded-lg overflow-hidden group fade-in">
-            <img src="assets/images/cast-wright.jpg" alt="Jeffrey Wright como Comissário Gordon"
-              class="w-full h-64 object-cover group-hover:scale-105 transition-transform">
+          <div class="cast-card bg-bat-black-card rounded-lg overflow-hidden group fade-in">
+            <div class="relative overflow-hidden">
+              <img src="assets/images/cast-wright.jpg" alt="Jeffrey Wright como Comissário Gordon"
+                class="w-full h-64 object-cover group-hover:scale-105 transition-transform">
+              <div class="lantern-overlay absolute inset-0 pointer-events-none"></div>
+            </div>
             <div class="p-4 text-center">
               <p class="font-body text-bat-text font-semibold">Jeffrey Wright</p>
               <p class="font-body text-bat-text-muted text-sm">James Gordon</p>
@@ -175,9 +201,12 @@
           </div>
 
           <!-- Card 6 -->
-          <div class="bg-bat-black-card rounded-lg overflow-hidden group fade-in">
-            <img src="assets/images/cast-serkis.jpg" alt="Andy Serkis como Alfred"
-              class="w-full h-64 object-cover group-hover:scale-105 transition-transform">
+          <div class="cast-card bg-bat-black-card rounded-lg overflow-hidden group fade-in">
+            <div class="relative overflow-hidden">
+              <img src="assets/images/cast-serkis.jpg" alt="Andy Serkis como Alfred"
+                class="w-full h-64 object-cover group-hover:scale-105 transition-transform">
+              <div class="lantern-overlay absolute inset-0 pointer-events-none"></div>
+            </div>
             <div class="p-4 text-center">
               <p class="font-body text-bat-text font-semibold">Andy Serkis</p>
               <p class="font-body text-bat-text-muted text-sm">Alfred Pennyworth</p>
@@ -185,9 +214,12 @@
           </div>
 
           <!-- Card 7 -->
-          <div class="bg-bat-black-card rounded-lg overflow-hidden group fade-in">
-            <img src="assets/images/cast-turturro.jpg" alt="John Turturro como Carmine Falcone"
-              class="w-full h-64 object-cover group-hover:scale-105 transition-transform">
+          <div class="cast-card bg-bat-black-card rounded-lg overflow-hidden group fade-in">
+            <div class="relative overflow-hidden">
+              <img src="assets/images/cast-turturro.jpg" alt="John Turturro como Carmine Falcone"
+                class="w-full h-64 object-cover group-hover:scale-105 transition-transform">
+              <div class="lantern-overlay absolute inset-0 pointer-events-none"></div>
+            </div>
             <div class="p-4 text-center">
               <p class="font-body text-bat-text font-semibold">John Turturro</p>
               <p class="font-body text-bat-text-muted text-sm">Carmine Falcone</p>
@@ -195,9 +227,12 @@
           </div>
 
           <!-- Card 8 -->
-          <div class="bg-bat-black-card rounded-lg overflow-hidden group fade-in">
-            <img src="assets/images/cast-sarsgaard.jpg" alt="Peter Sarsgaard como Gil Colson"
-              class="w-full h-64 object-cover group-hover:scale-105 transition-transform">
+          <div class="cast-card bg-bat-black-card rounded-lg overflow-hidden group fade-in">
+            <div class="relative overflow-hidden">
+              <img src="assets/images/cast-sarsgaard.jpg" alt="Peter Sarsgaard como Gil Colson"
+                class="w-full h-64 object-cover group-hover:scale-105 transition-transform">
+              <div class="lantern-overlay absolute inset-0 pointer-events-none"></div>
+            </div>
             <div class="p-4 text-center">
               <p class="font-body text-bat-text font-semibold">Peter Sarsgaard</p>
               <p class="font-body text-bat-text-muted text-sm">Gil Colson</p>
@@ -246,12 +281,27 @@
           Trailer
         </h2>
 
-        <div class="aspect-video rounded-lg overflow-hidden fade-in">
-          <iframe class="w-full h-full" src="https://www.youtube.com/embed/mqqft2x_Aa4"
-            title="The Batman - Trailer Oficial" frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen>
-          </iframe>
+        <div id="trailer-wrapper" class="aspect-video rounded-lg overflow-hidden fade-in relative cursor-pointer group">
+          <!-- Thumbnail (visível até o clique) -->
+          <img src="https://img.youtube.com/vi/mqqft2x_Aa4/maxresdefault.jpg" alt="Thumbnail do trailer de The Batman"
+            class="w-full h-full object-cover">
+
+          <!-- Overlay escurecendo a thumbnail -->
+          <div class="absolute inset-0 bg-bat-black/50 group-hover:bg-bat-black/30 transition-colors"></div>
+
+          <!-- Botão de play -->
+          <div class="absolute inset-0 flex items-center justify-center">
+            <div class="relative flex items-center justify-center">
+              <span class="absolute w-20 h-20 rounded-full bg-bat-red-bright/40 animate-ping"></span>
+              <span
+                class="relative w-20 h-20 rounded-full bg-bat-red-bright flex items-center justify-center group-hover:scale-110 transition-transform">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                  class="w-8 h-8 text-bat-text ml-1">
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </span>
+            </div>
+          </div>
         </div>
 
       </div>
@@ -270,37 +320,163 @@
 
             <!-- Card 1 -->
             <div class="min-w-full bg-bat-black-card rounded-lg p-8 text-center">
+              <div class="flex items-center justify-center gap-1 mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                  class="w-5 h-5 text-bat-amber">
+                  <path
+                    d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279L12 19.771l-7.416 3.642 1.48-8.279L0 9.306l8.332-1.151z" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                  class="w-5 h-5 text-bat-amber">
+                  <path
+                    d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279L12 19.771l-7.416 3.642 1.48-8.279L0 9.306l8.332-1.151z" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                  class="w-5 h-5 text-bat-amber">
+                  <path
+                    d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279L12 19.771l-7.416 3.642 1.48-8.279L0 9.306l8.332-1.151z" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                  class="w-5 h-5 text-bat-amber">
+                  <path
+                    d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279L12 19.771l-7.416 3.642 1.48-8.279L0 9.306l8.332-1.151z" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                  class="w-5 h-5 text-bat-text-muted">
+                  <path
+                    d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279L12 19.771l-7.416 3.642 1.48-8.279L0 9.306l8.332-1.151z" />
+                </svg>
+                <span class="font-mono text-bat-text-muted text-sm ml-2">4.0/5</span>
+              </div>
               <p class="font-body text-bat-text text-lg italic leading-relaxed">
                 "Um dos filmes de super-herói mais ousados e atmosféricos já feitos."
               </p>
-              <p class="font-body text-bat-red-bright mt-4 font-semibold">— Rolling Stone</p>
+              <div class="mt-4 flex justify-center">
+                <div class="inline-block bg-bat-black px-3 py-1 rounded-full border border-bat-text-muted/30">
+                  <span class="font-display text-xs tracking-widest text-bat-text">ROLLING STONE</span>
+                </div>
+              </div>
             </div>
 
             <!-- Card 2 -->
             <div class="min-w-full bg-bat-black-card rounded-lg p-8 text-center">
+              <div class="flex items-center justify-center gap-1 mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                  class="w-5 h-5 text-bat-amber">
+                  <path
+                    d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279L12 19.771l-7.416 3.642 1.48-8.279L0 9.306l8.332-1.151z" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                  class="w-5 h-5 text-bat-amber">
+                  <path
+                    d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279L12 19.771l-7.416 3.642 1.48-8.279L0 9.306l8.332-1.151z" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                  class="w-5 h-5 text-bat-amber">
+                  <path
+                    d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279L12 19.771l-7.416 3.642 1.48-8.279L0 9.306l8.332-1.151z" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                  class="w-5 h-5 text-bat-amber">
+                  <path
+                    d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279L12 19.771l-7.416 3.642 1.48-8.279L0 9.306l8.332-1.151z" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                  class="w-5 h-5 text-bat-amber">
+                  <path
+                    d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279L12 19.771l-7.416 3.642 1.48-8.279L0 9.306l8.332-1.151z" />
+                </svg>
+                <span class="font-mono text-bat-text-muted text-sm ml-2">5.0/5</span>
+              </div>
               <p class="font-body text-bat-text text-lg italic leading-relaxed">
                 "Pattinson entrega o Batman mais sombrio e humano das telonas."
               </p>
-              <p class="font-body text-bat-red-bright mt-4 font-semibold">— Empire</p>
+              <div class="mt-4 flex justify-center">
+                <div class="inline-block bg-bat-red px-3 py-1 rounded">
+                  <span class="font-body font-bold text-xs tracking-wider text-bat-text uppercase">Empire</span>
+                </div>
+              </div>
             </div>
 
             <!-- Card 3 -->
             <div class="min-w-full bg-bat-black-card rounded-lg p-8 text-center">
+              <div class="flex items-center justify-center gap-1 mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                  class="w-5 h-5 text-bat-amber">
+                  <path
+                    d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279L12 19.771l-7.416 3.642 1.48-8.279L0 9.306l8.332-1.151z" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                  class="w-5 h-5 text-bat-amber">
+                  <path
+                    d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279L12 19.771l-7.416 3.642 1.48-8.279L0 9.306l8.332-1.151z" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                  class="w-5 h-5 text-bat-amber">
+                  <path
+                    d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279L12 19.771l-7.416 3.642 1.48-8.279L0 9.306l8.332-1.151z" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                  class="w-5 h-5 text-bat-text-muted">
+                  <path
+                    d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279L12 19.771l-7.416 3.642 1.48-8.279L0 9.306l8.332-1.151z" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                  class="w-5 h-5 text-bat-text-muted">
+                  <path
+                    d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279L12 19.771l-7.416 3.642 1.48-8.279L0 9.306l8.332-1.151z" />
+                </svg>
+                <span class="font-mono text-bat-text-muted text-sm ml-2">3.0/5</span>
+              </div>
               <p class="font-body text-bat-text text-lg italic leading-relaxed">
                 "Um thriller policial disfarçado de filme de super-herói, e funciona muito bem."
               </p>
-              <p class="font-body text-bat-red-bright mt-4 font-semibold">— IGN</p>
+              <div class="mt-4 flex justify-center">
+                <div class="inline-block bg-bat-text px-3 py-1">
+                  <span class="font-body font-black text-xs tracking-wide text-bat-black">IGN</span>
+                </div>
+              </div>
             </div>
 
             <!-- Card 4 -->
             <div class="min-w-full bg-bat-black-card rounded-lg p-8 text-center">
+              <div class="flex items-center justify-center gap-1 mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                  class="w-5 h-5 text-bat-amber">
+                  <path
+                    d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279L12 19.771l-7.416 3.642 1.48-8.279L0 9.306l8.332-1.151z" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                  class="w-5 h-5 text-bat-amber">
+                  <path
+                    d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279L12 19.771l-7.416 3.642 1.48-8.279L0 9.306l8.332-1.151z" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                  class="w-5 h-5 text-bat-amber">
+                  <path
+                    d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279L12 19.771l-7.416 3.642 1.48-8.279L0 9.306l8.332-1.151z" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                  class="w-5 h-5 text-bat-amber">
+                  <path
+                    d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279L12 19.771l-7.416 3.642 1.48-8.279L0 9.306l8.332-1.151z" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                  class="w-5 h-5 text-bat-text-muted">
+                  <path
+                    d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279L12 19.771l-7.416 3.642 1.48-8.279L0 9.306l8.332-1.151z" />
+                </svg>
+                <span class="font-mono text-bat-text-muted text-sm ml-2">4.0/5</span>
+              </div>
               <p class="font-body text-bat-text text-lg italic leading-relaxed">
                 "Visualmente deslumbrante, com uma trilha sonora inesquecível."
               </p>
-              <p class="font-body text-bat-red-bright mt-4 font-semibold">— Variety</p>
+              <div class="mt-4 flex justify-center">
+                <div class="inline-block bg-transparent border-b-2 border-bat-amber px-1 pb-1">
+                  <span class="font-display text-sm tracking-wide text-bat-amber italic">Variety</span>
+                </div>
+              </div>
             </div>
-
-
 
           </div>
         </div>
@@ -310,6 +486,7 @@
 
       </div>
     </section>
+
   </main>
 
   <!-- ===================== FOOTER ===================== -->

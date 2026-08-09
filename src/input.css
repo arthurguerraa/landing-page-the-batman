@@ -132,3 +132,21 @@ html {
   0%, 50% { opacity: 1; }
   51%, 100% { opacity: 0; }
 }
+
+/* Preloader */
+#preloader.preloader-hidden {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.6s ease-out;
+}
+
+/* Efeito lanterna (Elenco) */
+.lantern-overlay {
+  background: radial-gradient(circle 100px at var(--x, 50%) var(--y, 50%), transparent 0%, rgba(10, 10, 10, 0.88) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease-out;
+}
+
+.cast-card:hover .lantern-overlay {
+  opacity: 1;
+}
