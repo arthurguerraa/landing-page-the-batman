@@ -6,6 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Batman</title>
 
+  <link rel="preload" href="assets/output.css" as="style">
+  <link rel="shortcut icon" href="assets/images/favicon_io/favicon-16x16.png" type="image/x-icon">
+  <link rel="stylesheet" href="assets/output.css">
+
+  <meta name="description"
+    content="Landing page fan-made sobre o filme The Batman, desenvolvida com HTML, Tailwind CSS e JavaScript.">
+
   <!-- Open Graph -->
   <meta property="og:title" content="The Batman (2022) — Landing Page">
   <meta property="og:description"
@@ -21,16 +28,14 @@
     content="Landing page fan-made sobre o filme The Batman, desenvolvida com HTML, Tailwind CSS e JavaScript.">
   <meta name="twitter:image" content="https://SEU-DOMINIO-AQUI/assets/images/og-image.jpg">
 
-  <link rel="shortcut icon" href="assets/images/favicon_io/favicon-16x16.png" type="image/x-icon">
-  <link rel="stylesheet" href="assets/output.css">
 </head>
 
 <body>
 
   <!-- ===================== PRELOADER ===================== -->
   <div id="preloader" class="fixed inset-0 z-200 bg-bat-black flex flex-col items-center justify-center gap-6">
-    <img src="assets/images/batman-logo-preloader.png" alt="Logo Batman" class="w-32 md:w-40 animate-pulse">
-    <div class="w-64 h-[2px] bg-bat-black-card overflow-hidden">
+    <img src="assets/images/batman-logo-preloader.webp" alt="Logo Batman" class="w-32 md:w-40 animate-pulse">
+    <div class="w-64 h-0.5 bg-bat-black-card overflow-hidden">
       <div id="preloader-bar" class="h-full bg-bat-red-bright transition-all duration-200 ease-out" style="width: 0%">
       </div>
     </div>
@@ -41,7 +46,7 @@
   <header id="header" class="fixed top-0 w-full z-50 transition-colors duration-300">
     <nav class="flex items-center justify-between px-6 py-4 max-w-7xl mx-auto">
       <a href="#">
-        <img src="assets/images/the-batman-logo.png" alt="Logo The Batman" class="h-11 w-22">
+        <img src="assets/images/the-batman-logo.webp" alt="Logo The Batman" class="h-11 w-22">
       </a>
 
       <!-- Botão hambúrguer, só aparece no mobile -->
@@ -71,7 +76,7 @@
 
       <!-- Camada de fundo (imagem) -->
       <div id="hero-bg"
-        class="absolute inset-0 h-[120%] z-0 bg-[url('/assets/images/hero-bg.jpeg')] bg-cover bg-center will-change-transform">
+        class="absolute inset-0 h-[120%] z-0 bg-[url('/assets/images/hero-bg.webp')] bg-cover bg-center will-change-transform">
       </div>
 
       <!-- Overlay escuro por cima da imagem -->
@@ -85,7 +90,7 @@
         <h1 class="glitch-hover font-display text-6xl md:text-8xl text-bat-text tracking-wide">
           THE BATMAN
         </h1>
-        <p class="font-body text-bat-text-muted text-lg md:text-xl mt-4 max-w-xl mx-auto">
+        <p class="font-body text-bat-red-bright text-lg md:text-xl mt-4 max-w-xl mx-auto">
           Vingança. Justiça. Medo.
         </p>
         <a href="#trailer"
@@ -102,7 +107,7 @@
 
         <!-- Imagem -->
         <div class="fade-in">
-          <img src="assets/images/summary-still.jpg" alt="Cena de The Batman" class="rounded-lg w-full">
+          <img src="assets/images/summary-still.webp" loading="lazy" alt="Cena de The Batman" class="rounded-lg w-full">
         </div>
 
         <!-- Texto -->
@@ -110,7 +115,7 @@
           <h2 class="neon-text font-display text-4xl md:text-5xl text-bat-red-bright mb-6 tracking-wide">
             Sinopse
           </h2>
-          <p id="synopsis-text" class="font-mono text-bat-red-bright text-lg leading-relaxed max-w-prose min-h-[160px]"
+          <p id="synopsis-text" class="font-mono text-bat-red-bright text-lg leading-relaxed max-w-prose min-h-40"
             data-text="No segundo ano aterrorizando a criminalidade de Gotham City à noite, Batman investiga a corrupção que liga sua própria família ao assassinato de um candidato à prefeitura, enquanto se confronta com um assassino em série conhecido como o Charada."
             aria-hidden="true">
           </p>
@@ -129,7 +134,8 @@
     <section id="cast" class="section-depth py-20 px-6">
       <div class="max-w-6xl mx-auto">
 
-        <h2 class="neon-text font-display text-4xl md:text-5xl text-bat-red-bright mb-12 text-center tracking-wide fade-in">
+        <h2
+          class="neon-text font-display text-4xl md:text-5xl text-bat-red-bright mb-12 text-center tracking-wide fade-in">
           Elenco
         </h2>
 
@@ -138,7 +144,7 @@
           <!-- Card 1 -->
           <div class="cast-card bg-bat-black-card rounded-lg overflow-hidden group fade-in">
             <div class="relative overflow-hidden">
-              <img src="assets/images/cast-pattinson.jpg" alt="Robert Pattinson como Batman"
+              <img src="assets/images/cast-pattinson.webp" loading="lazy" alt="Robert Pattinson como Batman"
                 class="w-full h-64 object-cover group-hover:scale-105 transition-transform">
               <div class="lantern-overlay absolute inset-0 pointer-events-none"></div>
             </div>
@@ -151,7 +157,7 @@
           <!-- Card 2 -->
           <div class="cast-card bg-bat-black-card rounded-lg overflow-hidden group fade-in">
             <div class="relative overflow-hidden">
-              <img src="assets/images/cast-kravitz.jpg" alt="Zoë Kravitz como Mulher-Gato"
+              <img src="assets/images/cast-kravitz.webp" loading="lazy" alt="Zoë Kravitz como Mulher-Gato"
                 class="w-full h-64 object-cover group-hover:scale-105 transition-transform">
               <div class="lantern-overlay absolute inset-0 pointer-events-none"></div>
             </div>
@@ -164,7 +170,7 @@
           <!-- Card 3 -->
           <div class="cast-card bg-bat-black-card rounded-lg overflow-hidden group fade-in">
             <div class="relative overflow-hidden">
-              <img src="assets/images/cast-dano.jpg" alt="Paul Dano como Charada"
+              <img src="assets/images/cast-dano.webp" loading="lazy" alt="Paul Dano como Charada"
                 class="w-full h-64 object-cover group-hover:scale-105 transition-transform">
               <div class="lantern-overlay absolute inset-0 pointer-events-none"></div>
             </div>
@@ -177,7 +183,7 @@
           <!-- Card 4 -->
           <div class="cast-card bg-bat-black-card rounded-lg overflow-hidden group fade-in">
             <div class="relative overflow-hidden">
-              <img src="assets/images/cast-farrell.jpg" alt="Colin Farrell como Pinguim"
+              <img src="assets/images/cast-farrell.webp" loading="lazy" alt="Colin Farrell como Pinguim"
                 class="w-full h-64 object-cover group-hover:scale-105 transition-transform">
               <div class="lantern-overlay absolute inset-0 pointer-events-none"></div>
             </div>
@@ -190,7 +196,7 @@
           <!-- Card 5 -->
           <div class="cast-card bg-bat-black-card rounded-lg overflow-hidden group fade-in">
             <div class="relative overflow-hidden">
-              <img src="assets/images/cast-wright.jpg" alt="Jeffrey Wright como Comissário Gordon"
+              <img src="assets/images/cast-wright.webp" loading="lazy" alt="Jeffrey Wright como Comissário Gordon"
                 class="w-full h-64 object-cover group-hover:scale-105 transition-transform">
               <div class="lantern-overlay absolute inset-0 pointer-events-none"></div>
             </div>
@@ -203,7 +209,7 @@
           <!-- Card 6 -->
           <div class="cast-card bg-bat-black-card rounded-lg overflow-hidden group fade-in">
             <div class="relative overflow-hidden">
-              <img src="assets/images/cast-serkis.jpg" alt="Andy Serkis como Alfred"
+              <img src="assets/images/cast-serkis.webp" loading="lazy" alt="Andy Serkis como Alfred"
                 class="w-full h-64 object-cover group-hover:scale-105 transition-transform">
               <div class="lantern-overlay absolute inset-0 pointer-events-none"></div>
             </div>
@@ -216,7 +222,7 @@
           <!-- Card 7 -->
           <div class="cast-card bg-bat-black-card rounded-lg overflow-hidden group fade-in">
             <div class="relative overflow-hidden">
-              <img src="assets/images/cast-turturro.jpg" alt="John Turturro como Carmine Falcone"
+              <img src="assets/images/cast-turturro.webp" loading="lazy" alt="John Turturro como Carmine Falcone"
                 class="w-full h-64 object-cover group-hover:scale-105 transition-transform">
               <div class="lantern-overlay absolute inset-0 pointer-events-none"></div>
             </div>
@@ -229,7 +235,7 @@
           <!-- Card 8 -->
           <div class="cast-card bg-bat-black-card rounded-lg overflow-hidden group fade-in">
             <div class="relative overflow-hidden">
-              <img src="assets/images/cast-sarsgaard.jpg" alt="Peter Sarsgaard como Gil Colson"
+              <img src="assets/images/cast-sarsgaard.webp" loading="lazy" alt="Peter Sarsgaard como Gil Colson"
                 class="w-full h-64 object-cover group-hover:scale-105 transition-transform">
               <div class="lantern-overlay absolute inset-0 pointer-events-none"></div>
             </div>
@@ -247,26 +253,27 @@
     <section id="scenes" class="section-depth py-20 px-6">
       <div class="max-w-6xl mx-auto">
 
-        <h2 class="neon-text font-display text-4xl md:text-5xl text-bat-red-bright mb-12 text-center tracking-wide fade-in">
+        <h2
+          class="neon-text font-display text-4xl md:text-5xl text-bat-red-bright mb-12 text-center tracking-wide fade-in">
           Cenas
         </h2>
 
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
 
           <!-- Imagem grande, ocupa 2 colunas -->
-          <img src="assets/images/scene-1.jpg" alt="Cena de The Batman 1"
+          <img src="assets/images/scene-1.webp" loading="lazy" alt="Cena de The Batman 1"
             class="col-span-2 row-span-2 w-full h-full object-cover rounded-lg hover:opacity-80 transition-opacity fade-in lightbox-img">
 
-          <img src="assets/images/scene-2.jpg" alt="Cena de The Batman 2"
+          <img src="assets/images/scene-2.webp" loading="lazy" alt="Cena de The Batman 2"
             class="w-full h-40 md:h-full object-cover rounded-lg hover:opacity-80 transition-opacity fade-in lightbox-img">
 
-          <img src="assets/images/scene-3.jpeg" alt="Cena de The Batman 3"
+          <img src="assets/images/scene-3.webp" loading="lazy" alt="Cena de The Batman 3"
             class="w-full h-40 md:h-full object-cover rounded-lg hover:opacity-80 transition-opacity fade-in lightbox-img">
 
-          <img src="assets/images/scene-4.jpg" alt="Cena de The Batman 4"
+          <img src="assets/images/scene-4.webp" loading="lazy" alt="Cena de The Batman 4"
             class="w-full h-40 md:h-full object-cover rounded-lg hover:opacity-80 transition-opacity fade-in lightbox-img">
 
-          <img src="assets/images/scene-5.jpg" alt="Cena de The Batman 5"
+          <img src="assets/images/scene-5.webp" loading="lazy" alt="Cena de The Batman 5"
             class="w-full h-40 md:h-full object-cover rounded-lg hover:opacity-80 transition-opacity fade-in lightbox-img">
 
         </div>
@@ -277,7 +284,8 @@
     <section id="trailer" class="section-depth py-20 px-6">
       <div class="max-w-4xl mx-auto">
 
-        <h2 class="neon-text font-display text-4xl md:text-5xl text-bat-red-bright mb-12 text-center tracking-wide fade-in">
+        <h2
+          class="neon-text font-display text-4xl md:text-5xl text-bat-red-bright mb-12 text-center tracking-wide fade-in">
           Trailer
         </h2>
 
@@ -311,7 +319,8 @@
     <section id="reviews" class="section-depth py-20 px-6">
       <div class="max-w-3xl mx-auto">
 
-        <h2 class="neon-text font-display text-4xl md:text-5xl text-bat-red-bright mb-12 text-center tracking-wide fade-in">
+        <h2
+          class="neon-text font-display text-4xl md:text-5xl text-bat-red-bright mb-12 text-center tracking-wide fade-in">
           Avaliações
         </h2>
 
@@ -495,7 +504,7 @@
     <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
 
       <div class="text-center md:text-left">
-        <p class="font-display text-2xl text-bat-red-bright tracking-wide">THE BATMAN</p>
+        <p class="font-display text-2xl text-bat-amber tracking-wide">THE BATMAN</p>
         <p class="font-body text-bat-text-muted text-sm mt-2 max-w-md">
           Projeto fan-made sem fins lucrativos, feito para fins de estudo.
           Todos os direitos das imagens e do filme pertencem à Warner Bros.
@@ -504,7 +513,7 @@
 
       <div class="flex gap-6">
         <a href="https://github.com/arthurguerraa" target="_blank" rel="noopener noreferrer"
-          class="text-bat-text hover:text-bat-red-bright transition-colors">
+          aria-label="Perfil no GitHub" class="text-bat-text hover:text-bat-red-bright transition-colors">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
             <path
               d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55 0-.27-.01-1.16-.02-2.1-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.47.11-3.06 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.79 0c2.21-1.49 3.18-1.18 3.18-1.18.63 1.59.23 2.77.11 3.06.74.8 1.19 1.83 1.19 3.09 0 4.43-2.69 5.41-5.25 5.69.41.36.78 1.08.78 2.17 0 1.57-.01 2.83-.01 3.22 0 .3.2.66.79.55C20.71 21.38 24 17.08 24 12c0-6.35-5.15-11.5-12-11.5Z" />
@@ -512,7 +521,7 @@
         </a>
 
         <a href="https://www.linkedin.com/in/arthurguerraa/" target="_blank" rel="noopener noreferrer"
-          class="text-bat-text hover:text-bat-red-bright transition-colors">
+          aria-label="Perfil no LinkedIn" class="text-bat-text hover:text-bat-red-bright transition-colors">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
             <path
               d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.86 0-2.14 1.45-2.14 2.94v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.59 0 4.26 2.37 4.26 5.45v6.29ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45Z" />
@@ -545,6 +554,22 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
       class="w-6 h-6">
       <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7" />
+    </svg>
+  </button>
+
+  <!-- Botão de música -->
+  <button id="music-toggle" aria-label="Ativar música"
+    class="fixed bottom-8 left-8 z-40 bg-bat-black-card hover:bg-bat-black text-bat-text w-12 h-12 rounded-full flex items-center justify-center border border-bat-text-muted/30 transition-colors shadow-lg">
+    <svg id="music-icon-off" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" class="w-5 h-5">
+      <path stroke-linecap="round" stroke-linejoin="round"
+        d="M9 18V5l12-2v13M9 18a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm12-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+      <line x1="3" y1="3" x2="21" y2="21" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+    </svg>
+    <svg id="music-icon-on" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" class="w-5 h-5 hidden">
+      <path stroke-linecap="round" stroke-linejoin="round"
+        d="M9 18V5l12-2v13M9 18a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm12-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
     </svg>
   </button>
 

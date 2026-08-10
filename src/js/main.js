@@ -17,7 +17,7 @@ const preloader = document.getElementById("preloader");
 const preloaderBar = document.getElementById("preloader-bar");
 const preloaderPercent = document.getElementById("preloader-percent");
 
-const allImages = document.querySelectorAll("img");
+const allImages = document.querySelectorAll("img:not([loading='lazy'])");
 const totalImages = allImages.length;
 let loadedImages = 0;
 
@@ -108,6 +108,7 @@ track.appendChild(firstClone);
 
 for (let i = 0; i < totalSlides; i++) {
   const dot = document.createElement("button");
+  dot.setAttribute("aria-label", `Ir para avaliação ${i + 1}`);
   dot.classList.add(
     "w-2.5",
     "h-2.5",
@@ -465,3 +466,69 @@ const ratingObserver = new IntersectionObserver(
 
 const reviewsSection = document.getElementById("reviews");
 ratingObserver.observe(reviewsSection);
+
+// ===================== MÚSICA DE FUNDO (Web Audio API, loop sample-accurate) =====================
+const musicToggle = document.getElementById("music-toggle");
+const iconOff = document.getElementById("music-icon-off");
+const iconOn = document.getElementById("music-icon-on");
+
+const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+let audioBuffer = null;
+let source = null;
+let isPlaying = false;
+let isLoaded = false;
+let audioLoadStarted = false;
+
+async function loadAudio() {
+  try {
+    const response = await fetch("assets/audio/trilha-corte.mp3");
+    const arrayBuffer = await response.arrayBuffer();
+    audioBuffer = await audioContext.decodeAudioData(arrayBuffer);
+    isLoaded = true;
+  } catch (err) {
+    console.error("Erro ao carregar áudio:", err);
+  }
+}
+
+function playLoop() {
+  source = audioContext.createBufferSource();
+  source.buffer = audioBuffer;
+  source.loop = true;
+  source.connect(audioContext.destination);
+  source.start(0);
+  isPlaying = true;
+}
+
+function stopLoop() {
+  if (source) {
+    source.stop();
+    source = null;
+  }
+  isPlaying = false;
+}
+
+musicToggle.addEventListener("click", async () => {
+  // Só carrega o áudio (4MB) na primeira vez que o usuário clicar, não ao abrir a página
+  if (!audioLoadStarted) {
+    audioLoadStarted = true;
+    await loadAudio();
+  }
+
+  if (!isLoaded) return;
+
+  if (audioContext.state === "suspended") {
+    await audioContext.resume();
+  }
+
+  if (isPlaying) {
+    stopLoop();
+    iconOn.classList.add("hidden");
+    iconOff.classList.remove("hidden");
+    musicToggle.setAttribute("aria-label", "Ativar música");
+  } else {
+    playLoop();
+    iconOff.classList.add("hidden");
+    iconOn.classList.remove("hidden");
+    musicToggle.setAttribute("aria-label", "Desativar música");
+  }
+});

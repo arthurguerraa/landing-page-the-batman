@@ -259,6 +259,9 @@
   .left-0 {
     left: 0px;
   }
+  .left-8 {
+    left: calc(var(--spacing) * 8);
+  }
   .z-0 {
     z-index: 0;
   }
@@ -334,6 +337,9 @@
   .aspect-video {
     aspect-ratio: var(--aspect-video);
   }
+  .h-0\.5 {
+    height: calc(var(--spacing) * 0.5);
+  }
   .h-2\.5 {
     height: calc(var(--spacing) * 2.5);
   }
@@ -364,9 +370,6 @@
   .h-64 {
     height: calc(var(--spacing) * 64);
   }
-  .h-\[2px\] {
-    height: 2px;
-  }
   .h-\[120\%\] {
     height: 120%;
   }
@@ -379,8 +382,8 @@
   .max-h-\[85vh\] {
     max-height: 85vh;
   }
-  .min-h-\[160px\] {
-    min-height: 160px;
+  .min-h-40 {
+    min-height: calc(var(--spacing) * 40);
   }
   .w-2\.5 {
     width: calc(var(--spacing) * 2.5);
@@ -585,8 +588,8 @@
   .bg-transparent {
     background-color: transparent;
   }
-  .bg-\[url\(\'\/assets\/images\/hero-bg\.jpeg\'\)\] {
-    background-image: url('/assets/images/hero-bg.jpeg');
+  .bg-\[url\(\'\/assets\/images\/hero-bg\.webp\'\)\] {
+    background-image: url('/assets/images/hero-bg.webp');
   }
   .bg-cover {
     background-size: cover;
@@ -799,6 +802,9 @@
         background-color: color-mix(in oklab, var(--color-bat-black) 30%, transparent);
       }
     }
+    .hover\:bg-bat-black:hover {
+      background-color: var(--color-bat-black);
+    }
     .hover\:bg-bat-red-bright:hover {
       background-color: var(--color-bat-red-bright);
     }
@@ -1008,6 +1014,10 @@ html {
 }
 .clip-reveal.is-revealed {
   clip-path: inset(0 0% 0 0);
+}
+#carousel-dots button {
+  padding: 7px;
+  background-clip: content-box;
 }
 @property --tw-translate-x {
   syntax: "*";

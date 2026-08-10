@@ -209,3 +209,9 @@ html {
 .clip-reveal.is-revealed {
   clip-path: inset(0 0% 0 0);
 }
+
+/* Aumenta a área clicável sem mudar o visual da bolinha */
+#carousel-dots button {
+  padding: 7px;
+  background-clip: content-box;
+}
