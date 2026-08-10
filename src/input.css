@@ -8,6 +8,7 @@
   --color-bat-black-card: #1c1c1c; /* fundo secundário/cards */
   --color-bat-red: #8b0000; /* destaque/cta */
   --color-bat-red-bright: #b0272c; /* destaque/cta */
+  --color-bat-red-accessible: #c9424a; /* variação clara do vermelho, só p/ texto pequeno sobre fundo preto */
   --color-bat-text: #e8e8e8; /* texto principal */
   --color-bat-text-muted: #9a9a9a; /* texto secundário */
   --color-bat-amber: #c9962c; /* detalhe/luz */
@@ -210,8 +211,17 @@ html {
   clip-path: inset(0 0% 0 0);
 }
 
-/* Aumenta a área clicável sem mudar o visual da bolinha */
+/* Área de clique maior nas bolinhas do carrossel, sem mudar o tamanho visual */
 #carousel-dots button {
-  padding: 7px;
-  background-clip: content-box;
+  position: relative;
+}
+
+#carousel-dots button::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 24px;
+  height: 24px;
+  transform: translate(-50%, -50%);
 }

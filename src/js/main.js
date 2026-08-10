@@ -481,7 +481,7 @@ let audioLoadStarted = false;
 
 async function loadAudio() {
   try {
-    const response = await fetch("assets/audio/trilha-corte.mp3");
+    const response = await fetch("assets/audio/soundtrack-cut.m4a");
     const arrayBuffer = await response.arrayBuffer();
     audioBuffer = await audioContext.decodeAudioData(arrayBuffer);
     isLoaded = true;
