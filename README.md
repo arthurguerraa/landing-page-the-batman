@@ -15,9 +15,9 @@ Landing page fan-made inspirada no filme **The Batman (2022)**, desenvolvida com
 
 ---
 
-## Preview
+## 📸 Preview
 
-> (docs/screenshot-hero.png)
+![Hero da landing page The Batman](docs/screenshot-hero.png)
 
 ---
 
