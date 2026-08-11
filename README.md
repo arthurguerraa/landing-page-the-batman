@@ -11,7 +11,7 @@ Landing page fan-made inspirada no filme **The Batman (2022)**, desenvolvida com
 
 ## Live Demo
 
-> *Link do deploy será adicionado aqui após a publicação.*
+> [Acesse o site aqui](https://arthurguerraa.github.io/landing-page-the-batman/)
 
 ---
 
